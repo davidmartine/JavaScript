@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Eventos JS</title>
+</head>
+<body /*onload="entrar()"*/>
+    <h1 id="titulo" /*onclick="CambiarTexto(this)"*/>Manejo Del DOM HTML</h1>
+    <h2 onmouseover="Rojo(this)" onmouseout="Negro(this)">Manejo de onmouseover y onmouseout</h2>
+    <h2 onmousedown="Rojo(this)" onmouseup="Negro(this)">Manejo de onmousedown y onmouseup</h2>
+    <br/>
+    <div id="mostrar">
+        <form id="formulario">
+            Nombre : <input type="text" id="nombre" /*onchange="Convertir(this)*/"/>
+            <br/><br/>
+            Direccion : <input type="text" id="direccion"/>
+        </form>
+    </div>
+        
+    <script>
+        document.getElementById('titulo').onclick = CambiarTexto;
+        function CambiarTexto(){
+            document.getElementById('mostrar').innerHTML='Cambiar El titulo';
+        }
+        function entrar(){
+            alert('Entrando al portal Web');
+            let texto='';
+            if(navigator.cookieEnabled){
+                texto='Cokies habilitadas';
+            }
+            else{
+                texto='Cookies inhabilitadas';
+            }
+            document.getElementById('mostrar').innerHTML=texto;
+        }
+        function Convertir(nombreInput){
+            //let nombre1=document.getElementById(nombreInput);
+            nombreInput.value=nombreInput.value.toUpperCase();
+        }
+        function Rojo(titulo2){
+            titulo2.style.color='blue';
+        }
+        function Negro(titulo2){
+            titulo2.style.color='black';
+        }
+        const formulario=document.getElementById('formulario');
+        formulario.addEventListener('focus',(evento)=>{
+            evento.target.style.background='yellow';
+        },true);
+        formulario.addEventListener('blur',(evento)=>{
+            evento.target.style.background = 'white';
+        },true);
+       /* document.getElementById('direccion').addEventListener('focus',cambiar);
+        document.getElementById('direccion').addEventListener('blur',regresar);
+        document.getElementById('nombre').addEventListener('focus',cambiar);
+        document.getElementById('nombre').addEventListener('blur',regresar);
+        function cambiar(evento){
+            let componente = evento.target;
+            componente.style.background='yellow';
+        }
+        function regresar(evento){
+            evento.target.style.background='white';
+        }*/
+
+      /*  function CambiarTexto(titulo){
+            console.log(titulo);
+            console.log(titulo.innerHTML);
+            titulo.innerHTML='Cambia El Titulo';
+            console.log(titulo.innerHTML);
+        }*/
+
+    </script>
+</body>
+</html>

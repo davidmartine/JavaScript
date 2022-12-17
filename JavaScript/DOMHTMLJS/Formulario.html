@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANEJO DE FORMULARIO</title>
+</head>
+<body>
+    <form id="formulario">
+        Nombre: <input type="text" name="Nombre" value="Juan"/>
+        <br/>
+        Apellido: <input type="text" name="Apellido" value="Perez"/>
+        <br/>
+
+    </form>
+    <button onclick="mostrarValores()">MOSTRAR</button>
+    <div id="valores"></div>
+    <script>
+        function mostrarValores(){
+            let formulario = document.forms['formulario'];
+            let texto = '';
+            for(let elemento of formulario){
+                texto += elemento.value + '<br/>';
+            }
+            document.getElementById('valores').innerHTML=texto;
+
+            let nombre=formulario['Nombre'];
+            let apellido=formulario['Apellido'];
+            texto = nombre.value + '<br/>' + apellido.value + '<br/>';
+        }
+    </script>
+</body>
+</html>

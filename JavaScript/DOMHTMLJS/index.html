@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJEMPLO DOM JAVASCRIPT</title>
+    <style>
+        .azul{
+            color:deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id='cabecero'>DOM CON JAVASCRIPT</h1>
+    <p id='parrafo' class='azul'>Comienzo</p>
+    <p id='parrafo2' class='azul'>Parrafo 2</p>
+    <script>
+        let cabecero = document.getElementById('cabecero');
+        let parrafo = document.getElementById('parrafo');
+        console.log(`valor cabecero: ${cabecero.innerHTML}`);
+        console.log(`valor del parrafo: ${parrafo.innerHTML}`);
+        console.log('SALUDOS CON JS');
+        cabecero.innerHTML = 'CABECERADO CAMBIADO DESDE JS';
+        parrafo.innerHTML = 'PARRAFO REALIZADO DESDE JAVASCRIPT MANEJANDO EL DOM HTML JS';
+        let elementos = document.getElementsByClassName('azul');
+        console.log(`N° elementos: ${elementos.length}`);
+        for(let i=0;i<elementos.length;i++){
+            console.log(`i:${i} - ${elementos[i].innerHTML}`);
+        }
+    </script>    
+</body>
+</html>
